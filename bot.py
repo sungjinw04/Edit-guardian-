@@ -47,5 +47,5 @@ def handle_messages(client, message: Message):
 # Start the bot
 if __name__ == "__main__":
     print("Bot is running...")
-    app.start()  # Start the bot session
+    app.run()  # Start the bot session
     
