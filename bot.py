@@ -7,9 +7,9 @@ from pyrogram.types import Message
 # Initialize Pyrogram Client
 app = Client(
     "my_bot",
-    api_id=os.getenv("25064357"),  # Replace with your own API ID
-    api_hash=os.getenv("cda9f1b3f9da4c0c93d1f5c23ccb19e2"),  # Replace with your own API HASH
-    bot_token=os.getenv("7329929698:AAGD5Ccwm0qExCq9_6GVHDp2E7iidLH-McU")  # Replace with your Bot Token
+    api_id="25064357",  # Replace with your own API ID
+    api_hash="cda9f1b3f9da4c0c93d1f5c23ccb19e2",  # Replace with your own API HASH
+    bot_token="7329929698:AAGD5Ccwm0qExCq9_6GVHDp2E7iidLH-McU" # Replace with your Bot Token
 )
 
 # MongoDB Setup
