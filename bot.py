@@ -47,4 +47,3 @@ def handle_messages(client, message: Message):
 # Start the bot
 print("Bot is running...")
 app.run()
-
