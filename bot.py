@@ -29,7 +29,7 @@ def save_message_to_db(message: Message):
     })
 
 # Function to handle edited messages
-@app.on_message(filters.edited & filters.group)
+@app.on_edited_message(filters.group)
 def handle_edited_message(client, message: Message):
     # Delete the edited message
     client.delete_messages(chat_id=message.chat.id, message_ids=message.message_id)
