@@ -48,5 +48,4 @@ def handle_messages(client, message: Message):
 if __name__ == "__main__":
     print("Bot is running...")
     app.start()  # Start the bot session
-    app.run()  # Run the bot to keep it listening to updates
-    app.stop()  # Properly stop the session when done
+    
