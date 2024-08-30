@@ -23,7 +23,7 @@ def save_message_to_db(message: Message):
     messages_collection.insert_one({
         "user_id": message.from_user.id,
         "chat_id": message.chat.id,
-        "message_id": message.message_id,
+        "message_id": message.id,  # Corrected: message.id instead of message.message_id
         "text": message.text or message.caption,
         "timestamp": message.date,
     })
@@ -32,7 +32,7 @@ def save_message_to_db(message: Message):
 @app.on_edited_message(filters.group)
 def handle_edited_message(client, message: Message):
     # Delete the edited message
-    client.delete_messages(chat_id=message.chat.id, message_ids=message.message_id)
+    client.delete_messages(chat_id=message.chat.id, message_ids=message.id)  # Corrected: message.id instead of message.message_id
     
     # Send an alert message
     alert_text = f"⚠️ {message.from_user.first_name} has edited a message. It was deleted."
@@ -45,5 +45,8 @@ def handle_messages(client, message: Message):
     save_message_to_db(message)
 
 # Start the bot
-print("Bot is running...")
-app.run()
+if __name__ == "__main__":
+    print("Bot is running...")
+    app.start()  # Start the bot session
+    app.run()  # Run the bot to keep it listening to updates
+    app.stop()  # Properly stop the session when done
