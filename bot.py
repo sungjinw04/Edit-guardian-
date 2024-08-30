@@ -9,11 +9,11 @@ app = Client(
     "my_bot",
     api_id="25064357",  # Replace with your own API ID
     api_hash="cda9f1b3f9da4c0c93d1f5c23ccb19e2",  # Replace with your own API HASH
-    bot_token="7329929698:AAGD5Ccwm0qExCq9_6GVHDp2E7iidLH-McU" # Replace with your Bot Token
+    bot_token="7329929698:AAGD5Ccwm0qExCq9_6GVHDp2E7iidLH-McU"  # Replace with your Bot Token
 )
 
 # MongoDB Setup
-MONGO_URI = os.getenv("mongodb+srv://Sungjinwoo4:sung4224@cluster0.ayaos.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  # Replace with your own MongoDB URI
+MONGO_URI = os.getenv("MONGO_URI")  # Ensure you set the environment variable MONGO_URI properly
 mongo_client = MongoClient(MONGO_URI)
 db = mongo_client["telegram_bot"]
 messages_collection = db["messages"]
@@ -45,7 +45,7 @@ def handle_messages(client, message: Message):
     save_message_to_db(message)
 
 # Start the bot
-if __name__ == "__main__":
+if __name__ == "__main__":  # Corrected line
     print("Bot is running...")
-    app.run()  # Start the bot session
-    
+    app.run()  # Corrected: use app.run() to start the bot session correctly
+
